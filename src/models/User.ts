@@ -1,4 +1,7 @@
+import { jsonServerAPI } from '../api';
+
 interface UserProps {
+  id?: number;
   name?: string;
   age?: number;
 }
@@ -38,5 +41,11 @@ export class User {
     handlers.forEach(callback => {
       callback();
     });
+  }
+
+  async fetch(): Promise<void> {
+    const { data } = await jsonServerAPI.get(`/users/${this.get('id')}`);
+
+    this.set(data);
   }
 }

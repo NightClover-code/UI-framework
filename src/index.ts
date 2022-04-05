@@ -1,8 +1,5 @@
-import { jsonServerAPI } from './api';
+import { User } from './models/User';
 
-jsonServerAPI.post('/users', {
-  name: 'myname',
-  age: 20,
-});
+const user = new User({ id: 1 });
 
-jsonServerAPI.get('/users/1');
+user.fetch();
