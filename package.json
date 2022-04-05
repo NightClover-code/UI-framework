@@ -1,0 +1,12 @@
+{
+  "name": "web-framework",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/NightClover-code/UI-framework",
+  "author": "Achraf Elmouhib <elmouhib2003achraf@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:db": "json-server -w db.json",
+    "start:parcel": "parcel index.html"
+  }
+}
