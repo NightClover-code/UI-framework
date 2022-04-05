@@ -1,17 +1,8 @@
-import { User } from './models/User';
+import { jsonServerAPI } from './api';
 
-const user = new User({ name: 'my_name', age: 20 });
-
-user.on('change', () => {
-  console.log('change #1');
+jsonServerAPI.post('/users', {
+  name: 'myname',
+  age: 20,
 });
 
-user.on('change', () => {
-  console.log('change #2');
-});
-
-user.on('save', () => {
-  console.log('save was triggered');
-});
-
-user.trigger('change');
+jsonServerAPI.get('/users/1');
