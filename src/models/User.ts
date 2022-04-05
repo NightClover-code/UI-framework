@@ -48,4 +48,14 @@ export class User {
 
     this.set(data);
   }
+
+  async save(): Promise<void> {
+    const id = this.get('id');
+
+    if (id) {
+      jsonServerAPI.put(`/users/${id}`, this.data);
+    } else {
+      jsonServerAPI.post(`/users`, this.data);
+    }
+  }
 }
