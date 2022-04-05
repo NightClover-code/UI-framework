@@ -10,7 +10,7 @@ interface Events {
 type Callback = () => void;
 
 export class User {
-  events: Events;
+  events: Events = {};
 
   constructor(private data: UserProps) {}
 
@@ -22,5 +22,11 @@ export class User {
     Object.assign(this.data, updatedData);
   }
 
-  on(eventName: string, callback: Callback) {}
+  on(eventName: string, callback: Callback): void {
+    const handlers = this.events[eventName] || [];
+
+    handlers.push(callback);
+
+    this.events[eventName] = handlers;
+  }
 }
