@@ -2,7 +2,7 @@ import { AxiosPromise } from 'axios';
 import { jsonServerAPI } from '../api';
 
 interface Required {
-  id: number;
+  id?: number;
 }
 
 export class Sync<T extends Required> {
