@@ -1,5 +1,5 @@
-import { jsonServerAPI } from '../api';
 import { Eventing } from './Eventing';
+import { Sync } from './Sync';
 
 interface UserProps {
   id?: number;
@@ -9,6 +9,7 @@ interface UserProps {
 
 export class User {
   public events: Eventing = new Eventing();
+  public sync: Sync<UserProps> = new Sync();
 
   constructor(private data: UserProps) {}
 
@@ -18,21 +19,5 @@ export class User {
 
   set(updatedData: UserProps): void {
     Object.assign(this.data, updatedData);
-  }
-
-  async fetch(): Promise<void> {
-    const { data } = await jsonServerAPI.get(`/users/${this.get('id')}`);
-
-    this.set(data);
-  }
-
-  async save(): Promise<void> {
-    const id = this.get('id');
-
-    if (!id) {
-      jsonServerAPI.put(`/users/${id}`, this.data);
-    } else {
-      jsonServerAPI.post(`/users`, this.data);
-    }
   }
 }
