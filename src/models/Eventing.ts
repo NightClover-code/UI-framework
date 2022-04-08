@@ -6,7 +6,10 @@ interface Events {
 
 export class Eventing {
   events: Events = {};
-
+  /* 
+    hooking up events and registering callbacks, 
+    then calling them when needed using trigger. 
+  */
   on(eventName: string, callback: Callback): void {
     const handlers = this.events[eventName] || [];
 
