@@ -4,21 +4,6 @@
       "id": 1,
       "name": "Albert",
       "age": 56
-    },
-    {
-      "id": 2,
-      "name": "Alfred",
-      "age": 10
-    },
-    {
-      "id": 3,
-      "name": "Peter",
-      "age": 40
-    },
-    {
-      "id": 4,
-      "name": "Gaster",
-      "age": 40
     }
   ]
 }
