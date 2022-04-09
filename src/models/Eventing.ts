@@ -1,4 +1,4 @@
-type Callback = () => void;
+export type Callback = () => void;
 
 interface Events {
   [key: string]: Callback[];
