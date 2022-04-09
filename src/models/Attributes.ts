@@ -4,11 +4,11 @@ export class Attributes<T> {
     crazy generics to tell TS that
     the return type must match the data's keys 
   */
-  get<K extends keyof T>(key: K): T[K] {
+  get = <K extends keyof T>(key: K): T[K] => {
     return this.data[key];
-  }
+  };
 
-  set(updatedData: T): void {
+  set = (updatedData: T): void => {
     Object.assign(this.data, updatedData);
-  }
+  };
 }

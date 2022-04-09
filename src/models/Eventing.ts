@@ -10,15 +10,15 @@ export class Eventing {
     hooking up events and registering callbacks, 
     then calling them when needed using trigger. 
   */
-  on(eventName: string, callback: Callback): void {
+  on = (eventName: string, callback: Callback): void => {
     const handlers = this.events[eventName] || [];
 
     handlers.push(callback);
 
     this.events[eventName] = handlers;
-  }
+  };
 
-  trigger(eventName: string): void {
+  trigger = (eventName: string): void => {
     const handlers = this.events[eventName];
 
     if (!handlers || handlers.length === 0) return;
@@ -26,5 +26,5 @@ export class Eventing {
     handlers.forEach(callback => {
       callback();
     });
-  }
+  };
 }
