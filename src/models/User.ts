@@ -16,7 +16,10 @@ export class User {
   constructor(attrs: UserProps) {
     this.attributes = new Attributes<UserProps>(attrs);
   }
-
+  /*
+    using accessors to easily reach other 
+    class methods by composition
+  */
   get on() {
     return this.events.on;
   }
@@ -27,5 +30,11 @@ export class User {
 
   get get() {
     return this.attributes.get;
+  }
+
+  set(updatedData: UserProps): void {
+    this.attributes.set(updatedData);
+
+    this.events.trigger('change');
   }
 }
