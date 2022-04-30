@@ -10,9 +10,9 @@ interface UserProps {
 }
 
 export class User {
-  public events: Eventing = new Eventing();
-  public sync: Sync<UserProps> = new Sync<UserProps>();
-  public attributes: Attributes<UserProps>;
+  private events: Eventing = new Eventing();
+  private sync: Sync<UserProps> = new Sync<UserProps>();
+  private attributes: Attributes<UserProps>;
 
   constructor(attrs: UserProps) {
     this.attributes = new Attributes<UserProps>(attrs);
