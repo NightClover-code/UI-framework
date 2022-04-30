@@ -55,9 +55,12 @@ export class Model<T extends Required> {
 
     if (!id) throw new Error('Cannot fetch without ID');
 
-    this.sync.fetch(id).then((res: AxiosResponse): void => {
-      this.set(res.data);
-    });
+    this.sync
+      .fetch(id)
+      .then((res: AxiosResponse): void => {
+        this.set(res.data);
+      })
+      .catch(err => console.log('Cannot find user with given ID'));
   }
 
   save(): void {
